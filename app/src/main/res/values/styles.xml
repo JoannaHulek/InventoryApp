@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonStyle">
+        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="android:textColor">@color/icons</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>
