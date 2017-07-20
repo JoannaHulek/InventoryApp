@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="@dimen/default_margin"
-    tools:context="com.example.joannahulek.inventoryapp.MainActivity">
+    tools:context="com.example.joannahulek.inventoryapp.StoreActivity">
 
     <LinearLayout
         android:id="@+id/empty_view"

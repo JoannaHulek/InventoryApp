@@ -51,15 +51,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_margin="@dimen/default_margin"
-            android:padding="@dimen/big_button_padding"
-            android:text="@string/select_product_image" />
-
-        <Button
-            style="@style/ButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="@dimen/default_margin"
             android:text="@string/save" />
     </LinearLayout>
 </ScrollView>

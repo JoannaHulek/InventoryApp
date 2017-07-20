@@ -8,11 +8,8 @@
     <string name="product_name">Product name</string>
     <string name="price">Price</string>
     <string name="quantity">Quantity</string>
-    <string name="select_product_image">Select product image</string>
-    <string name="new_supplier">New supplier</string>
     <string name="save">Save</string>
     <string name="supplier_name">Supplier name</string>
     <string name="supplier_phone_number">Supplier phone number</string>
-    <string name="supplier_e_mail">Supplier e-mail</string>
     <string name="product_details">Product details</string>
 </resources>
