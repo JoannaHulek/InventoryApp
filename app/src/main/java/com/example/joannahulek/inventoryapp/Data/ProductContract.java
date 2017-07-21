@@ -108,13 +108,11 @@ public class ProductContract extends ContentProvider {
             throw new IllegalArgumentException("Illegal product name");
         }
         Integer price = values.getAsInteger(ProductEntry.COLUMN_PRICE);
-        if (price == null || price < 0) ;
-        {
+        if (price == null || price < 0) {
             throw new IllegalArgumentException("Illegal price");
         }
         Integer quantity = values.getAsInteger(ProductEntry.COLUMN_QUANTITY);
-        if (quantity == null || quantity < 0) ;
-        {
+        if (quantity == null || quantity < 0) {
             throw new IllegalArgumentException("Illegal quantity");
         }
         ContactsContract.CommonDataKinds.Phone phone = (ContactsContract.CommonDataKinds.Phone)
