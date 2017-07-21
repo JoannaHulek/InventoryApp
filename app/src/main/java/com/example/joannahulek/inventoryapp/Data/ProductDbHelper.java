@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.joannahulek.inventoryapp.Data.ProductProvider.ProductsEntry.*;
+import static com.example.joannahulek.inventoryapp.Data.ProductProvider.ProductEntry.*;
 
 /**
  * Created by Joasia on 20.07.2017.
@@ -25,8 +25,8 @@ public class ProductDbHelper extends SQLiteOpenHelper {
 
         String SQL_CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
                 + COLUMN_NAME + " TEXT NOT NULL, "
-                + COLUMN_PRICE + " INTEGER NOT NULL DEFAULT 1, "
-                + COLUMN_QUANTITY + " INTEGER NOT NULL DEFAULT 1, "
+                + COLUMN_PRICE + " INTEGER NOT NULL DEFAULT 0, "
+                + COLUMN_QUANTITY + " INTEGER NOT NULL DEFAULT 0, "
                 + COLUMN_SUPPLIER + " TEXT, "
                 + COLUMN_PHONE + " PHONE NOT NULL)";
         db.execSQL(SQL_CREATE_PRODUCTS_TABLE);
