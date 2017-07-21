@@ -12,4 +12,6 @@
     <string name="supplier_name">Supplier name</string>
     <string name="supplier_phone_number">Supplier phone number</string>
     <string name="product_details">Product details</string>
+    <string name="insert_failed">Error with saving product</string>
+    <string name="product_saved">Product saved</string>
 </resources>

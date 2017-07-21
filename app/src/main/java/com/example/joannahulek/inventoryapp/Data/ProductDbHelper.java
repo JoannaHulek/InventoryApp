@@ -4,7 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.joannahulek.inventoryapp.Data.ProductProvider.ProductEntry.*;
+import static com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry.COLUMN_NAME;
+import static com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry.COLUMN_PHONE;
+import static com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry.COLUMN_PRICE;
+import static com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry.COLUMN_QUANTITY;
+import static com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry.COLUMN_SUPPLIER;
+import static com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry.TABLE_NAME;
 
 /**
  * Created by Joasia on 20.07.2017.

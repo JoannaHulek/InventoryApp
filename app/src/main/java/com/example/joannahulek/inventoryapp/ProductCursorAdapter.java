@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.example.joannahulek.inventoryapp.Data.ProductProvider;
-import com.example.joannahulek.inventoryapp.Data.ProductProvider.ProductEntry;
+import com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry;
 
 /**
  * Created by Joasia on 21.07.2017.
  */
 
-public class ProductCursorAdapter extends CursorAdapter{
+public class ProductCursorAdapter extends CursorAdapter {
 
     public ProductCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
