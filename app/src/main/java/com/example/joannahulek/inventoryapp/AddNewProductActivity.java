@@ -9,10 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.joannahulek.inventoryapp.Data.ProductContract;
-import com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry;
-
-import static android.provider.ContactsContract.CommonDataKinds.Phone;
+import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 
 public class AddNewProductActivity extends AppCompatActivity {
 
@@ -42,13 +39,14 @@ public class AddNewProductActivity extends AppCompatActivity {
         Uri mealUri = null;
         try {
             String name = nameEditText.getText().toString();
-            Integer price = Integer.parseInt(priceEditText.getText().toString());
+            Double price = Double.parseDouble(priceEditText.getText().toString());
             Integer quantity = Integer.parseInt(quantityEditText.getText().toString());
             String supplier = supplierEditText.getText().toString();
-            Phone phone = null;
+            String phone = phoneEditText.getText().toString();
             product = new Product(name, price, quantity, supplier, phone);
             mealUri = getContentResolver().insert(ProductEntry.CONTENT_URI, product.transformToContentValues());
         } catch (Exception e) {
+            e.printStackTrace();
             Toast.makeText(this, getString(R.string.insert_failed), Toast.LENGTH_SHORT).show();
         }
         if (mealUri != null) {

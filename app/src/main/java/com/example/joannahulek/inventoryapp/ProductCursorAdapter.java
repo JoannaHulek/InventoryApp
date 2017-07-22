@@ -8,16 +8,17 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry;
+import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 
 /**
  * Created by Joasia on 21.07.2017.
  */
 
 public class ProductCursorAdapter extends CursorAdapter {
-
+    private final Context context;
     public ProductCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
+        this.context = context;
     }
 
     @Override
@@ -32,7 +33,7 @@ public class ProductCursorAdapter extends CursorAdapter {
         TextView quantityTextView = (TextView) view.findViewById(R.id.product_quantity);
 
         nameTextView.setText(cursor.getString(cursor.getColumnIndex(ProductEntry.COLUMN_NAME)));
-        priceTextView.setText(cursor.getString(cursor.getColumnIndex(ProductEntry.COLUMN_PRICE)));
+        priceTextView.setText(cursor.getString(cursor.getColumnIndex(ProductEntry.COLUMN_PRICE)) + " "+ context.getResources().getText(R.string.currency));
         quantityTextView.setText(cursor.getString(cursor.getColumnIndex(ProductEntry.COLUMN_QUANTITY)));
     }
 }

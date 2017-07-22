@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/store_grid_view_item_size"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:background="@drawable/layout_border"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/product_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:gravity="center"
         android:textAllCaps="true"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/primaryText"
-        tools:text="Product name" />
+        tools:text="simple, long product name" />
 
     <TextView
         android:id="@+id/product_quantity"

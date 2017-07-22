@@ -1,4 +1,4 @@
-package com.example.joannahulek.inventoryapp.Data;
+package com.example.joannahulek.inventoryapp.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -7,14 +7,14 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry;
+import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 
-import static com.example.joannahulek.inventoryapp.Data.ProductDbHelper.LOG_TAG;
+import static com.example.joannahulek.inventoryapp.data.ProductContract.CONTENT_AUTHORITY;
+import static com.example.joannahulek.inventoryapp.data.ProductContract.PATH_PRODUCTS;
 
 /**
  * Created by Joasia on 20.07.2017.
@@ -22,10 +22,16 @@ import static com.example.joannahulek.inventoryapp.Data.ProductDbHelper.LOG_TAG;
 
 public class ProductProvider extends ContentProvider {
 
+    private static final String LOG_TAG = ProductProvider.class.toString();
     private ProductDbHelper mDbHelper;
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     private static final int PRODUCTS = 100;
     private static final int PRODUCT_ID = 101;
+
+    static {
+        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_PRODUCTS, PRODUCTS);
+        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_PRODUCTS + "/#", PRODUCT_ID);
+    }
 
     @Override
     public boolean onCreate() {
@@ -95,7 +101,7 @@ public class ProductProvider extends ContentProvider {
             return null;
         }
         getContext().getContentResolver().notifyChange(uri, null);
-        return null;
+        return ContentUris.withAppendedId(uri, id);
     }
 
     private void validateValues(ContentValues values) {
@@ -103,7 +109,7 @@ public class ProductProvider extends ContentProvider {
         if (productName == null) {
             throw new IllegalArgumentException("Illegal product name");
         }
-        Integer price = values.getAsInteger(ProductEntry.COLUMN_PRICE);
+        Double price = values.getAsDouble(ProductEntry.COLUMN_PRICE);
         if (price == null || price < 0) {
             throw new IllegalArgumentException("Illegal price");
         }
@@ -111,8 +117,7 @@ public class ProductProvider extends ContentProvider {
         if (quantity == null || quantity < 0) {
             throw new IllegalArgumentException("Illegal quantity");
         }
-        ContactsContract.CommonDataKinds.Phone phone = (ContactsContract.CommonDataKinds.Phone)
-                values.get(ProductEntry.COLUMN_PHONE);
+        String phone = values.getAsString(ProductEntry.COLUMN_PHONE);
         if (phone == null) {
             throw new IllegalArgumentException("Illegal phone number");
         }
@@ -165,7 +170,7 @@ public class ProductProvider extends ContentProvider {
             }
         }
         if (values.containsKey(ProductEntry.COLUMN_PRICE)) {
-            Integer price = values.getAsInteger(ProductEntry.COLUMN_PRICE);
+            Double price = values.getAsDouble(ProductEntry.COLUMN_PRICE);
             if (price == null || price < 0) {
                 throw new IllegalArgumentException("Illegal price");
             }
@@ -177,8 +182,7 @@ public class ProductProvider extends ContentProvider {
             }
         }
         if (values.containsKey(ProductEntry.COLUMN_PHONE)) {
-            ContactsContract.CommonDataKinds.Phone phone = (ContactsContract.CommonDataKinds.Phone)
-                    values.get(ProductEntry.COLUMN_PHONE);
+            String phone = values.getAsString(ProductEntry.COLUMN_PHONE);
             if (phone == null) {
                 throw new IllegalArgumentException("Illegal phone number");
             }

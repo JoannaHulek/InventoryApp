@@ -20,7 +20,6 @@
         <activity
             android:name=".ProductDetailsActivity"
             android:label="@string/product_details">
-            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StoreActivity" />
@@ -29,11 +28,15 @@
         <activity
             android:name=".AddNewProductActivity"
             android:label="@string/add_new_product">
-            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StoreActivity" />
         </activity>
+
+        <provider
+            android:authorities="com.example.joannahulek.inventoryapp"
+            android:name=".data.ProductProvider"
+            android:exported="false"/>
 
     </application>
 </manifest>

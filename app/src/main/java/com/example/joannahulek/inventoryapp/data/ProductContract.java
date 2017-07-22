@@ -1,4 +1,4 @@
-package com.example.joannahulek.inventoryapp.Data;
+package com.example.joannahulek.inventoryapp.data;
 
 import android.content.ContentResolver;
 import android.net.Uri;
@@ -21,6 +21,7 @@ public class ProductContract {
                 + CONTENT_AUTHORITY + "/" + PATH_PRODUCTS;
         public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
                 + CONTENT_AUTHORITY + "/" + PATH_PRODUCTS;
+
         public final static String TABLE_NAME = "products";
         public final static String COLUMN_NAME = "name";
         public final static String COLUMN_PRICE = "price";

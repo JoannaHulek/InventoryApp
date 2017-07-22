@@ -2,9 +2,7 @@ package com.example.joannahulek.inventoryapp;
 
 import android.content.ContentValues;
 
-import com.example.joannahulek.inventoryapp.Data.ProductContract.ProductEntry;
-
-import static android.provider.ContactsContract.CommonDataKinds.Phone;
+import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 
 /**
  * Created by Joasia on 21.07.2017.
@@ -12,12 +10,12 @@ import static android.provider.ContactsContract.CommonDataKinds.Phone;
 
 public class Product {
     private final String productName;
-    private final Integer price;
+    private final Double price;
     private final Integer quantity;
     private final String supplier;
-    private final Phone phone;
+    private final String phone;
 
-    public Product(String productName, Integer price, Integer quantity, String supplier, Phone phone) {
+    public Product(String productName, Double price, Integer quantity, String supplier, String phone) {
         this.productName = productName;
         this.price = price;
         this.quantity = quantity;
@@ -31,7 +29,7 @@ public class Product {
         values.put(ProductEntry.COLUMN_PRICE, price);
         values.put(ProductEntry.COLUMN_QUANTITY, quantity);
         values.put(ProductEntry.COLUMN_SUPPLIER, supplier);
-        // values.put(ProductProvider.ProductEntry.COLUMN_PHONE, phone);
+        values.put(ProductEntry.COLUMN_PHONE, phone);
         return values;
     }
 }
