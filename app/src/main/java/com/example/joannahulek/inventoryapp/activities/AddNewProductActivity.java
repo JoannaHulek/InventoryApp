@@ -1,4 +1,4 @@
-package com.example.joannahulek.inventoryapp;
+package com.example.joannahulek.inventoryapp.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.joannahulek.inventoryapp.specifics.Product;
+import com.example.joannahulek.inventoryapp.R;
 import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 
 public class AddNewProductActivity extends AppCompatActivity {

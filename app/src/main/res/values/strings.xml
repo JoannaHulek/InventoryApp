@@ -4,15 +4,18 @@
     <string name="your_store_is_empty_now">Your store is empty now</string>
     <string name="sell">sell</string>
     <string name="order">order</string>
-    <string name="delete">delete</string>
-    <string name="product_name">Product name</string>
-    <string name="price">Price</string>
-    <string name="quantity">Quantity</string>
+    <string name="remove">remove</string>
+    <string name="product_name_required">Product name *</string>
+    <string name="price_required">Price *</string>
+    <string name="quantity_required">Quantity *</string>
     <string name="save">Save</string>
     <string name="supplier_name">Supplier name</string>
-    <string name="supplier_phone_number">Supplier phone number</string>
+    <string name="supplier_phone_number_required">Supplier phone number *</string>
     <string name="product_details">Product details</string>
     <string name="insert_failed">Error with saving product</string>
     <string name="product_saved">Product saved</string>
     <string name="currency">$</string>
+    <string name="required">* required</string>
+    <string name="supply_by">Supply by:</string>
+    <string name="no_more_of_this_product">No more of this product on your store!</string>
 </resources>

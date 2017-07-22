@@ -1,5 +1,6 @@
-package com.example.joannahulek.inventoryapp;
+package com.example.joannahulek.inventoryapp.activities;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,6 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
+
+import com.example.joannahulek.inventoryapp.R;
+import com.example.joannahulek.inventoryapp.adapters.ProductCursorAdapter;
+import com.example.joannahulek.inventoryapp.specifics.Product;
 
 import static com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 
@@ -59,5 +65,19 @@ public class StoreActivity extends AppCompatActivity implements LoaderManager.Lo
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         adapter.swapCursor(null);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        if (bundle != null)
+            adapter = (ProductCursorAdapter) bundle.get("adapter");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        if (bundle != null)
+            bundle.putSerializable("adapter", adapter);
+        super.onSaveInstanceState(bundle);
     }
 }

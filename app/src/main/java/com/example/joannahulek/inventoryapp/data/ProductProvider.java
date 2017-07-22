@@ -118,7 +118,7 @@ public class ProductProvider extends ContentProvider {
             throw new IllegalArgumentException("Illegal quantity");
         }
         String phone = values.getAsString(ProductEntry.COLUMN_PHONE);
-        if (phone == null) {
+        if (!android.util.Patterns.PHONE.matcher(phone).matches()) {
             throw new IllegalArgumentException("Illegal phone number");
         }
     }

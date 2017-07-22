@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".StoreActivity">
+        <activity android:name=".activities.StoreActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,19 +18,19 @@
         </activity>
 
         <activity
-            android:name=".ProductDetailsActivity"
+            android:name=".activities.ProductDetailsActivity"
             android:label="@string/product_details">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StoreActivity" />
+                android:value=".activities.StoreActivity" />
         </activity>
 
         <activity
-            android:name=".AddNewProductActivity"
+            android:name=".activities.AddNewProductActivity"
             android:label="@string/add_new_product">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StoreActivity" />
+                android:value=".activities.StoreActivity" />
         </activity>
 
         <provider

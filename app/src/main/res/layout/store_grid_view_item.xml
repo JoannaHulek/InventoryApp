@@ -16,7 +16,7 @@
         android:textAllCaps="true"
         android:textAppearance="?android:textAppearanceLarge"
         android:textColor="@color/primaryText"
-        tools:text="simple, long product name" />
+        tools:text="product name" />
 
     <TextView
         android:id="@+id/product_quantity"
