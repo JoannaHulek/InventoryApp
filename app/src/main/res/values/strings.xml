@@ -18,4 +18,8 @@
     <string name="required">* required</string>
     <string name="supply_by">Supply by:</string>
     <string name="no_more_of_this_product">No more of this product on your store!</string>
+    <string name="remove_dialog_msg">Remove this product?</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove_product_failed">Error with removing product</string>
+    <string name="remove_product_successful">product successfully removed</string>
 </resources>

@@ -27,6 +27,7 @@ import static com.example.joannahulek.inventoryapp.data.ProductContract.ProductE
 
 public class ProductCursorAdapter extends CursorAdapter implements Serializable {
     private final Context context;
+
     public ProductCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
         this.context = context;
@@ -52,7 +53,7 @@ public class ProductCursorAdapter extends CursorAdapter implements Serializable 
         String supplierPhone = cursor.getString(cursor.getColumnIndex(ProductEntry.COLUMN_PHONE));
 
         nameTextView.setText(productName);
-        priceTextView.setText(productPrice.toString() + " "+ context.getResources().getText(R.string.currency));
+        priceTextView.setText(productPrice.toString() + " " + context.getResources().getText(R.string.currency));
         quantityTextView.setText(productQuantity.toString());
 
         final Product currentProduct = new Product(productId, productName, productPrice, productQuantity, supplierName, supplierPhone);
@@ -79,7 +80,7 @@ public class ProductCursorAdapter extends CursorAdapter implements Serializable 
         context.startActivity(intent);
     }
 
-    private Integer sellProduct (Product currentProduct, Integer productQuantity) {
+    private Integer sellProduct(Product currentProduct, Integer productQuantity) {
         Integer newQuantity = productQuantity - 1;
         if (newQuantity < 0) {
             Toast.makeText(context, context.getResources().getString(R.string.no_more_of_this_product), Toast.LENGTH_SHORT).show();

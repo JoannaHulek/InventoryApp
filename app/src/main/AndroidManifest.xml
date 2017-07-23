@@ -38,5 +38,7 @@
             android:name=".data.ProductProvider"
             android:exported="false"/>
 
+        <uses-permission android:name="android.permission.CALL_PHONE" />
+
     </application>
 </manifest>
