@@ -7,12 +7,9 @@ import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import static android.provider.BaseColumns._ID;
-
 /**
  * Created by Joasia on 21.07.2017.
  */
-
 public class Product implements Serializable {
     public Integer getId() {
         return id;
@@ -30,6 +27,10 @@ public class Product implements Serializable {
         return quantity;
     }
 
+    public String getImageUri() {
+        return imageUri;
+    }
+
     public String getSupplier() {
         return supplier;
     }
@@ -42,25 +43,22 @@ public class Product implements Serializable {
     private final String productName;
     private final Double price;
     private final Integer quantity;
+    private final String imageUri;
     private final String supplier;
     private final String phone;
 
-    public Product(Integer id, String productName, Double price, Integer quantity, String supplier, String phone) {
+    public Product(Integer id, String productName, Double price, Integer quantity, String imageUri, String supplier, String phone) {
+        this.id = id;
         this.productName = productName;
         this.price = price;
         this.quantity = quantity;
+        this.imageUri = imageUri;
         this.supplier = supplier;
         this.phone = phone;
-        this.id = id;
     }
 
-    public Product(String productName, Double price, Integer quantity, String supplier, String phone) {
-        this.productName = productName;
-        this.price = price;
-        this.quantity = quantity;
-        this.supplier = supplier;
-        this.phone = phone;
-        id = null;
+    public Product(String productName, Double price, Integer quantity, String imageUri, String supplier, String phone) {
+        this(null, productName, price, quantity, imageUri, supplier, phone);
     }
 
     public ContentValues transformToContentValues() {
@@ -68,6 +66,7 @@ public class Product implements Serializable {
         values.put(ProductEntry.COLUMN_NAME, productName);
         values.put(ProductEntry.COLUMN_PRICE, BigDecimal.valueOf(price).setScale(2, BigDecimal.ROUND_HALF_DOWN).toString());
         values.put(ProductEntry.COLUMN_QUANTITY, quantity);
+        values.put(ProductEntry.COLUMN_IMAGE_URI, imageUri);
         values.put(ProductEntry.COLUMN_SUPPLIER, supplier);
         values.put(ProductEntry.COLUMN_PHONE, phone);
         return values;

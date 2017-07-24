@@ -17,17 +17,16 @@ import static com.example.joannahulek.inventoryapp.data.ProductContract.ProductE
  */
 
 public class ProductDbHelper extends SQLiteOpenHelper {
-
-    private static final String LOG_TAG = ProductDbHelper.class.getSimpleName();
     private static final String SQL_CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_NAME + " TEXT NOT NULL, "
             + COLUMN_PRICE + " DOUBLE NOT NULL DEFAULT 0, "
             + COLUMN_QUANTITY + " INTEGER NOT NULL DEFAULT 0, "
+            + COLUMN_IMAGE_URI + " TEXT, "
             + COLUMN_SUPPLIER + " TEXT, "
             + COLUMN_PHONE + " TEXT NOT NULL);";
     private static final String DATABASE_NAME = "productslist.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     public ProductDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,10 +39,6 @@ public class ProductDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion == 1 && newVersion == 2) {
-            db.execSQL("DROP TABLE " + TABLE_NAME);
-            db.execSQL(SQL_CREATE_PRODUCTS_TABLE);
-        }
     }
 
     @Override

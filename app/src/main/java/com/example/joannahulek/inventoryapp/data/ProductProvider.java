@@ -19,7 +19,6 @@ import static com.example.joannahulek.inventoryapp.data.ProductContract.PATH_PRO
 /**
  * Created by Joasia on 20.07.2017.
  */
-
 public class ProductProvider extends ContentProvider {
 
     private static final String LOG_TAG = ProductProvider.class.toString();

@@ -18,7 +18,7 @@ import static com.example.joannahulek.inventoryapp.data.ProductContract.ProductE
 
 public class StoreActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    ProductCursorAdapter adapter;
+    private ProductCursorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class StoreActivity extends AppCompatActivity implements LoaderManager.Lo
                 ProductEntry.COLUMN_NAME,
                 ProductEntry.COLUMN_PRICE,
                 ProductEntry.COLUMN_QUANTITY,
+                ProductEntry.COLUMN_IMAGE_URI,
                 ProductEntry.COLUMN_SUPPLIER,
                 ProductEntry.COLUMN_PHONE};
         return new CursorLoader(this, ProductEntry.CONTENT_URI, projection, null, null, null);
