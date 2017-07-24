@@ -16,7 +16,7 @@ import static com.example.joannahulek.inventoryapp.data.ProductContract.ProductE
  * Created by Joasia on 20.07.2017.
  */
 
-public class ProductDbHelper extends SQLiteOpenHelper {
+class ProductDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_NAME + " TEXT NOT NULL, "
@@ -28,7 +28,7 @@ public class ProductDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "productslist.db";
     private static final int DATABASE_VERSION = 1;
 
-    public ProductDbHelper(Context context) {
+    ProductDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
