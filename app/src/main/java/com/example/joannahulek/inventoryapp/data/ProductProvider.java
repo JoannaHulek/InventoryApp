@@ -120,6 +120,10 @@ public class ProductProvider extends ContentProvider {
         if (!android.util.Patterns.PHONE.matcher(phone).matches()) {
             throw new IllegalArgumentException("Illegal phone number");
         }
+        String supplier = values.getAsString(ProductEntry.COLUMN_SUPPLIER);
+        if (supplier == null){
+
+        }
     }
 
     @Override

@@ -5,8 +5,6 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +17,6 @@ import android.widget.Toast;
 import com.example.joannahulek.inventoryapp.R;
 import com.example.joannahulek.inventoryapp.data.ProductContract.ProductEntry;
 import com.example.joannahulek.inventoryapp.specifics.Product;
-
-import java.io.File;
 
 import static com.example.joannahulek.inventoryapp.R.id.decrement_quantity_button;
 import static com.example.joannahulek.inventoryapp.R.id.increment_quantity_button;
@@ -48,7 +44,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         } else {
             productQuantity = currentProduct.getQuantity();
         }
-        fillData(currentProduct);
+        fillViews(currentProduct);
         addInteractions(currentProduct);
     }
 
@@ -94,7 +90,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void fillData(Product currentProduct) {
+    private void fillViews(Product currentProduct) {
         currentProductUri = ContentUris.withAppendedId(ProductEntry.CONTENT_URI, currentProduct.getId());
         supplierPhoneNumber = currentProduct.getPhone();
 
