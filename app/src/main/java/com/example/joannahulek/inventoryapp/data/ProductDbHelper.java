@@ -43,6 +43,5 @@ class ProductDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

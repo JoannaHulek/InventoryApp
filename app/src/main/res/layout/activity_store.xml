@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/empty_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/big_img_size"
+            android:layout_height="@dimen/big_img_size"
             android:layout_gravity="center"
             android:src="@drawable/store" />
 
