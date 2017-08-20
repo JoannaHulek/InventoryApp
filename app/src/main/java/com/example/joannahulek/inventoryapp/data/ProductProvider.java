@@ -121,7 +121,7 @@ public class ProductProvider extends ContentProvider {
             throw new IllegalArgumentException("Illegal phone number");
         }
         String supplier = values.getAsString(ProductEntry.COLUMN_SUPPLIER);
-        if (supplier == null){
+        if (supplier == null) {
 
         }
     }

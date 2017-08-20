@@ -101,7 +101,7 @@ public class AddNewProductActivity extends AppCompatActivity {
     private void addProduct(EditText nameEditText, EditText priceEditText, EditText quantityEditText,
                             EditText supplierEditText, EditText phoneEditText) {
         Product product;
-        Uri mealUri = null;
+        Uri productUri = null;
         try {
             String name = nameEditText.getText().toString();
             Double price = Double.parseDouble(priceEditText.getText().toString());
@@ -110,12 +110,12 @@ public class AddNewProductActivity extends AppCompatActivity {
             String supplier = supplierEditText.getText().toString();
             String phone = phoneEditText.getText().toString();
             product = new Product(name, price, quantity, imageUri, supplier, phone);
-            mealUri = getContentResolver().insert(ProductEntry.CONTENT_URI, product.transformToContentValues());
+            productUri = getContentResolver().insert(ProductEntry.CONTENT_URI, product.transformToContentValues());
         } catch (Exception e) {
             Toast.makeText(this, getString(R.string.insert_failed), Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Exception while product saving", e);
         }
-        if (mealUri != null) {
+        if (productUri != null) {
             Toast.makeText(AddNewProductActivity.this, getString(R.string.product_saved), Toast.LENGTH_SHORT).show();
         }
         Intent i = new Intent(AddNewProductActivity.this, StoreActivity.class);
