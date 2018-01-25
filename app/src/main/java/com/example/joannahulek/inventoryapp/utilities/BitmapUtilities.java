@@ -20,5 +20,6 @@ public class BitmapUtilities {
             Bitmap myBitmap = BitmapFactory.decodeFile(picture.getAbsolutePath(), options);
             imageHolder.setImageBitmap(myBitmap);
         }
+        //TODO: what happens when the image does not exist?
     }
 }

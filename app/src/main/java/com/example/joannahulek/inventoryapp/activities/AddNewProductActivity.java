@@ -111,6 +111,7 @@ public class AddNewProductActivity extends AppCompatActivity {
             String phone = phoneEditText.getText().toString();
             product = new Product(name, price, quantity, imageUri, supplier, phone);
             productUri = getContentResolver().insert(ProductEntry.CONTENT_URI, product.transformToContentValues());
+        //TODO: should not catch general Exception, catch only relevant ones
         } catch (Exception e) {
             Toast.makeText(this, getString(R.string.insert_failed), Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Exception while product saving", e);

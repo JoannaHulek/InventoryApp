@@ -58,6 +58,7 @@ public class ProductCursorAdapter extends CursorAdapter implements Serializable 
         priceTextView.setText(String.format("%s %s", product.getPrice(), context.getResources().getText(R.string.currency)));
         quantityTextView.setText(String.format("%s", product.getQuantity()));
 
+        //TODO: final?
         Button sellButton = (Button) view.findViewById(R.id.sell_product_button);
         sellButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +99,7 @@ public class ProductCursorAdapter extends CursorAdapter implements Serializable 
         } else {
             ContentValues values = currentProduct.transformToContentValues();
             values.put(ProductEntry.COLUMN_QUANTITY, newQuantity);
-            Integer id = currentProduct.getId();
+            Integer id = currentProduct.getId(); //TODO: do you really need this variable?
             context.getContentResolver().update(ProductEntry.CONTENT_URI, values, ProductEntry._ID + "=?", new String[]{id.toString()});
         }
     }

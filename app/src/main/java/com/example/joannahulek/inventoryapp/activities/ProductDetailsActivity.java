@@ -50,6 +50,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     private void addInteractions(final Product currentProduct) {
         final Button incrementQuantity = (Button) findViewById(increment_quantity_button);
+        //TODO: why decrementQuanitity button is not final?
         Button decrementQuantity = (Button) findViewById(decrement_quantity_button);
 
         final TextView quantityTextView = (TextView) findViewById(product_quantity);
@@ -69,6 +70,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
 
+        //TODO: why is removeProductButton not final? I think all these buttons should be on top
+        //of the method to improve readability
         Button removeProductButton = (Button) findViewById(R.id.remove_product_button);
         removeProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +80,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
 
+        //TODO: the same as removeProductButton
         Button orderProductButton = (Button) findViewById(R.id.order_product_button);
         orderProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +99,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         supplierPhoneNumber = currentProduct.getPhone();
 
         ImageView productImageView = (ImageView) findViewById(R.id.product_image_in_details);
+        //TODO: use a local variables in place where exactly you need them to improve readability
         TextView nameTextView = (TextView) findViewById(product_name);
         TextView priceTextView = (TextView) findViewById(product_price);
         TextView supplierTextView = (TextView) findViewById(supplier_name_text_view);
@@ -113,9 +118,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
         quantityTextView.setText(String.format("%s", productQuantity));
     }
 
+    //TODO: do you really need separate functions for increment and decrement?
+    // most of the code is the same.
     private Integer decrement(Product currentProduct, Integer productQuantity) {
         Integer newQuantity = productQuantity - 1;
         if (newQuantity < 0) {
+            //TODO: maybe decreasing the quaninty to less than 1 should remove the product?
             Toast.makeText(this, getString(R.string.no_more_of_this_product), Toast.LENGTH_SHORT).show();
             return productQuantity;
         } else {
